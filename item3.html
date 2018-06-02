@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>达辉大酒店</title>
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<!-- SUI框架 -->
+
+<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+
+<!-- 百度MAPAPI -->
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=eYf9sA6yVTFHlh9ytU4a0EYY"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+<link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+
+<!-- 其他css引用 -->
+<link rel="stylesheet" href="common.css">
+
+<!-- 其他js引用 -->
+
+<!-- 其他style -->
+
+
+
+</head>
+<body>
+<!-- 头部 -->
+
+<!-- /头部 -->
+<!-- 主体 -->
+
+	<div class="page-group">
+		<div id="page-fixed-tab-infinite-scroll" class="page">
+		<script type="text/javascript">
+			$('title').html("达辉大酒店");
+		</script>
+			<div class="content">
+			    <style type="text/css">
+				#allmap_detail {width: 100vw;height: 60vw;overflow: hidden;margin:0;font-family:"微软雅黑";}
+				.BMap_noprint.anchorTR{ width: 40px;padding-top: 44px;margin-right: 16px;}
+				.searchbar_box{ position: absolute;top 0px; z-index: 9999; background-color: #FFF; float: left; width: 100%; padding: 0px 2px; }
+				#category{position: absolute;left: 11px; top:60px;padding:5px 10px; font-weight: bold; font-size: 20px; background-color:#0894ec;border: 1px solid #CCC; text-align: center;}
+				#category a{color: #FFF; }
+				.popup-detail{top:80px;}
+				#detail_bottom{ position: absolute;bottom: 0px;}
+
+				</style>
+		    	<div id="allmap_detail"></div>
+		    	<a id="mark_url" href="" class="hidden"></a>
+		    	<script type="text/javascript">
+
+			    	function create_map(){
+			    		$('#allmap_detail').height($(window).height()-100);
+						var map = new BMap.Map("allmap_detail");  
+						map.addControl(new BMap.MapTypeControl({type:BMAP_ANCHOR_TOP_LEFT,mapTypes: [BMAP_NORMAL_MAP]}));
+						map.centerAndZoom(new BMap.Point(113.801786,27.886127), 13);
+						map.enableScrollWheelZoom(true);
+
+						// 添加定位控件
+						var geolocationControl = new BMap.GeolocationControl();
+						geolocationControl.addEventListener("locationSuccess", function(e){
+						    
+						});
+					    geolocationControl.addEventListener("locationError",function(e){
+						    // 定位失败事件
+						    alert(e.message);
+					  	});
+						map.addControl(geolocationControl);
+
+						set_marks(map);
+
+						$.toast("定位中...");
+						var geolocation = new BMap.Geolocation();
+						geolocation.getCurrentPosition(function(r){
+							if(this.getStatus() == BMAP_STATUS_SUCCESS){
+								$.toast("定位成功，可以导航前往");
+								gps.lng=r.point.lng;
+								gps.lat=r.point.lat;
+								$("#baidu_nav").show();
+							}
+							else {
+								alert('failed'+this.getStatus());
+							}        
+						},{enableHighAccuracy: true});
+
+
+						$('#baidu_nav').click(function(){
+							if(gps.lng>0){}else{return false;}
+							url="http://api.map.baidu.com/direction?origin=name:起点|latlng:"+gps.lat+","+gps.lng+"&destination=name:达辉大酒店|latlng:27.886127,113.801786&mode=driving&region=达辉大酒店&output=html&coord_type=bd09ll";
+							location.href=url;
+						});
+					}
+					
+			    </script>
+			    			    <script type="text/javascript" src="/Public/Home/js/map_index.js"></script>
+			    <div align="center" id="detail_bottom" style="width:100%; ">
+			    <a class=" open-popup" data-popup=".popup-detail" >
+			    <div style="clear: both; padding:10px; width:100%; border-top: 1px solid #CCC;background-color:#0894ec; color:#FFF;" align="left">
+				达辉大酒店<span class="icon icon-up" style="float:right;"></span>
+			    </div>
+			    </a>
+			    <div align="center" style="font-size:12px; color:#CCC;">&nbsp;</div>
+			    </div>
+
+		    	
+			
+		    </div>
+		</div>    
+
+    <div class="popup popup-detail">
+	  <header class="bar bar-nav">
+	    <a class="button button-link button-nav pull-right close-popup">
+	      <span class="icon icon-down"></span>
+	    </a>
+	    <h1 class="title">达辉大酒店</h1>
+	  </header>
+	  <div class="content">
+	    <div class="content-inner">
+
+	        <div class="buttons-tab" data-offset="0" style="clear: both;">
+			      <a href="#tab1" class="tab-link active button">简介</a>
+			      <a href="#tab2" class="tab-link  button">实景</a>			      			      			      <a id="baidu_nav" class="tab-link button" style="display: none;" style="color:#ff9500">导航</a>
+			</div>
+
+
+				<div class="tabs" style="margin-bottom:100px;">
+					  <div id="tab1" class="tab active">
+					    <div class="list-block" style="margin:0px 0px;">
+				            <ul class="content-container">
+				            	<div style="padding: 5px;">联系电话：<a href="tel:"></a></div>
+				            	<div style="padding: 5px;">地址：				            	</div>
+				            	<div style="padding: 5px;">
+	<p style="text-indent:2em;">
+	<span style="color:#006600;font-family:Simsun;background-color:#FFFFFF;">******</span><br /></p>
+
+	<p style="text-indent:2em;">
+	<span style="color:#006600;font-family:Simsun;background-color:#FFFFFF;">******</span><br /></p>
+
+	<p style="text-indent:2em;">
+	<span style="color:#006600;font-family:Simsun;background-color:#FFFFFF;">******</span><br /></p>
+
+	<p style="text-indent:2em;">
+	<span style="color:#006600;font-family:Simsun;background-color:#FFFFFF;">******</span><br /></p>
+
+				</div>
+				            </ul>
+				          </div>
+					  </div>
+				      <div id="tab2" class="tab">
+				          <div class="list-block media-list inset" style="margin:0px 0px;">           
+				            	<div class="card demo-card-header-pic">
+		<div valign="bottom" class="card-header color-white no-border no-padding">
+		  <img class='card-cover' src="item3_1.jpeg" alt="">
+		</div>
+		<div class="card-content">
+			<div class="card-content-inner">
+				<p></p>
+			</div>
+		</div>
+</div><div class="card demo-card-header-pic">
+		<div valign="bottom" class="card-header color-white no-border no-padding">
+		  <img class='card-cover' src="item3_2.jpeg" alt="">
+		</div>
+		<div class="card-content">
+			<div class="card-content-inner">
+				<p></p>
+			</div>
+		</div>
+</div>
+				          </div>
+				      </div>
+				      <div id="tab3"  class="tab infinite-scroll">
+				              <div class="list-block media-list inset" style="margin:0px 0px;">
+			            <ul class="list-container">
+</ul>
+</div>				       
+				      </div>
+    			</div>
+
+	    </div>
+	  </div>
+	</div>
+    </div>
+
+<!-- /主体 -->
+<!-- 底部 -->
+
+<!-- /底部 -->
+<footer>
+
+
+	<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+
+
+ 	<script type="text/javascript">
+		// 百度地图API功能
+		$(function () {
+		  	$(document).on("pageInit", "#page-fixed-tab-infinite-scroll", function(e, id, page) {
+		  		create_map();
+			});
+			$.init();
+		});		
+	</script>
+
+</footer>
+</body>
+</html>

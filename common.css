@@ -1,0 +1,7 @@
+.hidden{display: none;}
+.town_list{}
+.town_list div{margin: 5px 0px;}
+.page, .page-group{background: #FFF;}
+#detail_bottom .open-popup{
+	line-height: 50px;
+}
